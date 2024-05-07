@@ -162,15 +162,15 @@ wallimage_hover_moreimg.forEach(function(element){
         var incrementIndex = function(){
             var currentinindex = currentimgIndex()
             currentinindex += 1
-            if (currentinIndex > images.length - 1) {currentinIndex = 0}
-            return currentinIndex;
+            if (currentinindex > images.length - 1) {currentinindex = 0}
+            return currentinindex;
         };
 
         var decrementIndex = function(){
-            var currentinIndex = currentimgIndex()
-            currentinIndex = currentinIndex - 1;
-            if(currentinIndex < 0) {currentinIndex = images.length - 1}
-            return currentinIndex;
+            var currentinindex = currentimgIndex()
+            currentinindex = currentinIndex - 1;
+            if(currentinindex < 0) {currentinindex = images.length - 1}
+            return currentinindex;
         };
 
         nxtbtn.onclick = function(){
