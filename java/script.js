@@ -162,14 +162,14 @@ wallimage_hover_moreimg.forEach(function(element){
         var incrementIndex = function(){
             var currentinindex = currentimgIndex()
             currentinindex += 1
-            if (currentinindex > images.length - 1) {currentinindex = 0}
+            if (currentinindex > allimages.length - 1) {currentinindex = 0}
             return currentinindex;
         };
 
         var decrementIndex = function(){
             var currentinindex = currentimgIndex()
-            currentinindex = currentinIndex - 1;
-            if(currentinindex < 0) {currentinindex = images.length - 1}
+            currentinindex = currentinindex - 1;
+            if(currentinindex < 0) {currentinindex = allimages.length - 1}
             return currentinindex;
         };
 
