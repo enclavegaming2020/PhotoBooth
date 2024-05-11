@@ -217,3 +217,40 @@ morebtn.addEventListener("click",function(){
     });
 });
 
+var upload = document.querySelector("#up-btn")
+var upload_content = document.querySelector(".Upload-content")
+var drag_drop_up = document.querySelector("#drag-drop-up > strong")
+var upload_place = document.querySelector("#upload-place")
+var hidden_up = document.querySelector("#hidden_up")
+var up_img =document.querySelector("#up-img")
+var up_submit = document.querySelector("#up-submit")
+
+upload.addEventListener("click",function(){
+    upload_content.style.display = "block"
+})
+
+upload_place.addEventListener("dragover",function(event){
+    event.preventDefault()
+})
+
+upload_place.addEventListener("dragstart",function(event){
+    event.preventDefault()
+})
+
+upload_place.addEventListener("drop",function(event){
+    event.preventDefault()
+    data = event.dataTransfer.files[0]
+    var reader = new FileReader();
+    reader.addEventListener("load", function(){
+        up_img.src = reader.result
+        console.log(up_img.src)
+    });
+    reader.readAsDataURL(data);
+
+    up_img.style.display = "block"
+})
+
+up_submit.addEventListener("click",function(){
+    up_img.style.display = "none";
+    document.querySelector(".Upload-content").style.display = "none"
+})
