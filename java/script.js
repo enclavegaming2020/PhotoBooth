@@ -13,7 +13,7 @@ var wallimage = ["https://img.playbook.com/5yFsfzeSsPJ7FER4uJFNZv4Bc-TZnzSYGcvaC
 "https://img.playbook.com/Bo6AyDe5DrcBrHYQi1eltVGK71Is2SSidur7Xv4fiM0/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzJiMjNiMWMw/LTViMWQtNGQyYi1i/ZmJmLWFhODJiYzVm/NGE1ZQ",
 "https://img.playbook.com/gOyVwVeBnN-f2-ayAp_acSKQstB7xzbEViyeoXCHoFQ/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzJmZTlhY2Ey/LWE0NjYtNDU2Yi05/MmI0LTExZGU0YWM2/NDBmMw",
 "https://img.playbook.com/goD5TraHtMTjqrkJI2VzuXc6t_S9XQvVyDYRwkB9E7k/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2IzYmFjMTg5/LTdhZTEtNDRhMy04/ZWJlLTVmYzNjMjg3/MDU4Yg",
-"https://img.playbook.com/lKqN_qYZS2yRyR_SQevZoXrmeCMP7fmqG5-hDvxORCY/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzlmNjljM2Q1/LTQ2OTktNGVmOC04/NWExLWUyN2QwZDg1/YzUzOQ",
+"https://img.playbook.com/hnb_ls5LU1WxEF1ig9fDLEfzNyvaq4G_-N6jewhjGu4/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2I5MTE0N2Vm/LTZmZGItNDUyMS1h/OTUxLTU3MjIyZmMy/Njc1Nw",
 "https://img.playbook.com/lKqN_qYZS2yRyR_SQevZoXrmeCMP7fmqG5-hDvxORCY/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzlmNjljM2Q1/LTQ2OTktNGVmOC04/NWExLWUyN2QwZDg1/YzUzOQ",
 "https://img.playbook.com/0s1JNTWLR0pnjebLoEs1BJIrlH7lHHZqPWGupojS4JE/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzk3ZmRmNGNh/LTVlOGItNDNiZi1i/ZDdiLTZmOGNiNTE3/YWFkNw",
 "https://img.playbook.com/d7x8y7MN2fdj3tkHy8D-2nBwMagJkc9dzXg-rcd4L1I/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2MxYWE2N2E4/LTcyZjctNGRlNi05/ZDRjLWE4MTg2ZTk4/MmZlNA",
@@ -104,6 +104,14 @@ wallimage_hover.forEach(function(element){
         event.preventDefault();
         modal.style.display = "block";
         modalImg.src=this.querySelector('img').src;
+        var download_btn = document.querySelector("#download-btn")
+
+        download_btn.addEventListener("click",function(){
+            var a = document.createElement("a")
+            a.href = modalImg.src
+            a.download = "image"
+            a.click();
+        })
         navbar.style.display = "none";
         var currentimgIndex = function(){
             for(j=0; j<wallimage.length; j++){
@@ -152,6 +160,14 @@ wallimage_hover_moreimg.forEach(function(element){
         event.preventDefault();
         modal.style.display = "block";
         modalImg.src=this.querySelector('img').src;
+        var download_btn = document.querySelector("#download-btn")
+
+        download_btn.addEventListener("click",function(){
+            var a = document.createElement("a")
+            a.href = modalImg.src;
+            a.download = "image"
+            a.click();
+        })
         navbar.style.display = "none"
         var currentimgIndex = function(){
             for(j=0; j<wallimage.length; j++){
@@ -199,6 +215,7 @@ window.addEventListener('click',function(event){
     if (event.target == modal){
         modal.style.display = "none"
         navbar.style.display = "flex"
+        console.log(event.target)
     }
 });
 
@@ -224,6 +241,8 @@ var upload_place = document.querySelector("#upload-place")
 var hidden_up = document.querySelector("#hidden_up")
 var up_img =document.querySelector("#up-img")
 var up_submit = document.querySelector("#up-submit")
+var upload_btn = document.querySelector("#upload-btn")
+var getfile = document.querySelector("#getFile")
 
 upload.addEventListener("click",function(){
     upload_content.style.display = "block"
@@ -250,7 +269,33 @@ upload_place.addEventListener("drop",function(event){
     up_img.style.display = "block"
 })
 
+
 up_submit.addEventListener("click",function(){
     up_img.style.display = "none";
     document.querySelector(".Upload-content").style.display = "none"
 })
+
+upload_btn.addEventListener("click", function() {
+    getfile.click();
+});
+  
+getfile.addEventListener("change",function(){
+    var data = getfile.files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function(){
+        up_img.src = reader.result
+        console.log(up_img.src)
+    });
+    reader.readAsDataURL(data);
+    up_img.style.display = "block"
+})
+
+up_submit.addEventListener("click", function() {
+    up_img.style.display = "none";
+    document.querySelector(".Upload-content").style.display = "none";
+});
+
+document.querySelector(".close_up").addEventListener('click',function(){
+    upload_content.style.display = "none"
+});
+

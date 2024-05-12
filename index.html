@@ -74,7 +74,7 @@
         <div class = "modal">
             <button id="next-btn">></button>
             <img src="" alt="" class="modal-img">
-            <button id="download-btn" download>Download</button>
+            <a id="download-link" href="" download="image.jpg"><button id="download-btn" type="button">Download</button></a>
             <button id="prev-btn"><</button>
             <span class="close">&times;</span>
         </div>  
@@ -122,7 +122,7 @@
                     <input id="hidden_up" type="file" draggable>
                     <img src="icons/attaching.gif"><br>
                     <strong>Have wallpaper to Upload?</strong><br>
-                    <button id="upload-btn" style="display:block;" onclick="document.getElementById('getFile').click()">Upload a photo</button>
+                    <button id="upload-btn" style="display:block;">Upload a photo</button>
                     <input type="file" id="getFile" style="display:none">
                 </div>
                 <div id="upload-bylink">
@@ -130,6 +130,7 @@
                 </div>
                 <img id="up-img" src="">
             </div>
+            <span class="close_up">&times;</span>
             <button id="up-submit">Submit</button>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>

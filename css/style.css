@@ -571,3 +571,15 @@
 #up-submit:hover{
     opacity: 1;
 }
+
+.close_up{
+    position: absolute;
+    top: -11px;
+    right: 21px;
+    font-size: 2.7em;
+    color:red;
+}
+
+.close_up:hover{
+    cursor: pointer;
+}
