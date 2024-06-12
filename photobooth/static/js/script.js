@@ -299,3 +299,9 @@ document.querySelector(".close_up").addEventListener('click',function(){
     upload_content.style.display = "none"
 });
 
+sessionuser = document.querySelector(".Session-Login")
+
+console.log(sessionuser.innerHTML)
+if(sessionuser.innerHTML == ""){
+    sessionuser.innerHTML = "Login"
+}

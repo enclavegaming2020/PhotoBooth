@@ -20,7 +20,7 @@
             </div>
             <ul id = "navlist">
                 <li><a href="../templates/categories.html">Categories</a></li>
-                <li><a href="{{url_for('user')}}">User</a></li>
+                <li><a href="{{url_for('user')}}" class="Session-Login">{{session.username}}</a></li>
                 <li><button id="up-btn" type="submit">Upload</button></li>
             </ul>
         </nav>
@@ -113,15 +113,13 @@
                 </div>
             </div>
         </div>
-        <form action="upload.php" method="post" enctype="multipart/form-data"> 
+        <form action = "/upload" method="post" enctype="multipart/form-data"> 
             <div class = "Upload-content">
                 <div id="upload-place">
                         <div id="drag-drop-up">
-                            <input id="hidden_up" type="file" draggable>
+                            <input id="hidden_up" type="file" name="dragfile" draggable>
                             <img src="../static/icons/attaching.gif" alt="attach gif"><br>
                             <strong>Have wallpaper to Upload?</strong><br>
-                            <button id="upload-btn" style="display:block;">Upload a photo</button>
-                            <input type="file" id="getFile" name="file" style="display:none">
                         </div>
                         <div id="upload-bylink">
                             <span>Photo by URL link</span>

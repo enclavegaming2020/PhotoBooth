@@ -48,10 +48,15 @@ signup.addEventListener("click",function(){
  
 msg = document.querySelector(".msg")
 
-msg_display = function(){
-        alert([msg.innerHTML])
+if(msg.innerHTML !== ""){
+    alert([msg.innerHTML])
 }
 
-if (msg.innerHTML !== ""){
-    msg_display()
+function togglePassword(){
+    var pass = document.querySelector(".Pass");
+    if (pass.type === "password"){
+        pass.type = "text";
+    }else{
+        pass.type = "password";
+    }
 }
