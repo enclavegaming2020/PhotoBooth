@@ -102,6 +102,3 @@ def upload():
         file = request.files['dragfile']
         file.save(f"photobooth\\uploads\\{file.filename}")
         return render_template("index.html", msg="File uploaded successfully")
-
-if __name__ == "__main__":
-    app.run(debug=False, host = "0.0.0.0")
